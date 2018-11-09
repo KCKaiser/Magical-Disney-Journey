@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design.css') }}">
+
+
+    <title>Magical Disney Journey</title>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+        <nav class='navbar navbar-default'>
+
+                <b><a href = "/"><h1 style = "font-size: 60px; padding-bottom: 30px; font-family: Big Caslon;">Magical Disney Journey</h1></a></b>
+                <center><a href="/predict" class = "w3-btn w3-blue" >Predict</a> 
+                    <a href="/month" class = "w3-btn w3-blue">Calendar</a> 
+                    <a href="/madlib" class = "w3-btn w3-blue">Game</a>
+                    <a href="/about" class = "w3-btn w3-blue">About</a></center>
+
+                    <br>
+                    <br>
+        </nav>
+  
+      
+
+    <div class="container">
+        <div class="row">
+            <div class = "col-xs-12 col-sm-12 col-md-6">
+                <div class="panel-body">
+                    <h2 class = "predicthead"> Planning a Trip to Disney World?</h2>
+                    <p class = "predictp">Try out our ride wait time predictor to predict the wait times for popular rides on the day of your trip!
+                    Please keep in mind that wait time predictor is currently in development, (humans are really hard to predict!) so the times will unfortunately be inaccurate.
+                    Select a date and press submit to see the wait times! </p>
+                    <div class="input-group">
+                        <input type="date" class="form-control" placeholder="Select a Date to Search" id="dateInput">
+                    </div>
+                    <p>   </p>
+                    <button class="btn btn-primary btn-md" id="submit">Submit</button>
+                </div>
+            </div>
+            <div class = "col-xs-12 col-sm-12 col-md-6">
+                    <div class="panel-body">
+                        <br>
+                        <br>
+                        <p>  </p>
+                            <h3 class = "predicthead2">Predicted Times</h3>
+                        <br>
+                        <div class = "predict"><b>Expedition Everest':</b> {{ prediction[0] }} minutes</div>
+                        <p> </p>
+                        <div class = "predict"><b>Splash Mountain':</b> {{ prediction[1] }} minutes</div>
+                        <p> </p>
+                        <div class = "predict"><b>Soarin'':</b> {{ prediction[2] }} minutes</div>
+                        <p> </p>
+                        <div class = "predict"><b>Rock 'n' Roller Coaster':</b> {{ prediction[3] }} minutes</div>
+                    </div>
+            </div>
+        </div>
+   
+    <script>
+        season_dict = {};
+        {% for hemi in season_days %}
+        season_dict[`{{ hemi }}`] = [];
+            {% for h in season_days[hemi] %}
+            season_dict[`{{ hemi }}`] = season_dict[`{{ hemi }}`].concat(`{{h}}`);
+            {% endfor %}
+        {% endfor %}
+
+        session_dict = {};
+        {% for hemi in session_days %}
+        session_dict[ `{{ hemi }}` ] = Number(`{{ session_days[hemi] }}`)
+        {% endfor %}
+
+        weather_dict ={};
+        {% for hemi in weather_days %}
+        weather_dict[ `{{ hemi }}`] = Number(`{{ weather_days[hemi] }}`)
+        {% endfor %}
+
+    </script>
+    <script src="/static/js/app.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Magical Happy Disney </title>
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design.css') }}">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+
+<body>
+<nav class='navbar navbar-default'>
+    <b><a href = "/"><h1 style = "font-size: 60px; padding-bottom: 30px; font-family: Big Caslon;">Magical Disney Journey</h1></a></b>
+    <center><a href="/predict" class = "w3-btn w3-blue" >Predict</a> 
+        <a href="/month" class = "w3-btn w3-blue">Calendar</a> 
+        <a href="/madlib" class = "w3-btn w3-blue">Game</a>
+        <a href="/about" class = "w3-btn w3-blue">About</a></center>
+        <br>
+        <br>
+</nav>
+
+
+  <!--End Navbar-->
+
+  <!--Start main body-->      
+            <!-- Start Visualization Column-->
+            <div class = "container" style = "background-color: white;">
+                           <div class='row'>
+                             <b><h2 style = "font-family: Big Caslon; font-size: 45px"> The Magical Journey Team</h2></b> 
+                             </div>
+                    <hr/>      
+                  <div class = "row">
+                 <div class='col-md-4'>
+                   <div class = "thumbnail">
+                       <img src="static/images/mike.png" width="340" height="340"
+                  alt='Latitude' title="Latitude"
+                  style='float: left; margin-right: 10px; margin-bottom: 5px;
+                  border: solid black 1px; padding'/>
+             
+                   <div class = "caption">
+               
+                  <p style= "font-size: 15px;">King Mike reigns with kindess and good intent.  When not ruling
+                    his kingdom or feeding deer homegrown organic veggies
+                    he loves to code.  All hail King Mike.
+                  </p>
+                  </div>
+                  </div>
+                  </div>
+          
+                  <div class = "col-md-8">
+
+                    <p style = "font-size: 20px;";>
+                        For this project we found a robust Disney dataset with many variables, 
+                        in order to evaluate our dataset to see important factors for our model, we had to effective analyze our dataset.  
+                        We used <a href = "/pandas"> pandas profiling </a>which allowed us to effectively go through our dataset and apply logic to 
+                        eliminate any variables that were not needed in our model.  We tried using a linear regression model 
+                        but that produced ineffective results.  The more accurate model for our dataset was a Support Vector Regression model, 
+                        which is part of the scikit-learn models.  We tuned our parameters for our model using GridSearchCV, which tests a range of 
+                        parameters (epsilon, gamma, and c) in the model and test and fits the best parameters for our dataset's model
+                    </p></div>
+                  </div>
+        
+
+                  <!-- Annabelle -->
+                  <div class='row'>
+                      <div class='col-md-4'>
+                      <div class = "thumbnail">
+                      <img src="static/images/AB.png" width="340" height="340"
+                       alt='Latitude' title="Latitude"
+                       style='float: left; margin-right: 10px; margin-bottom: 5px;
+                       border: solid black 1px; padding'/>
+                       <div class = "caption">
+                       <p style = "font-size: 15px;">Princess Annabelle knows everything about Disney.
+                        She is kind and beautiful... but this princess doesn't need saving...
+                        think Cinderalla meets Xena Warrior Princess. </p>
+                       </div>
+                       </div>
+                       </div>
+
+                      <div class = "col-md-8">
+                        <p style = "font-size: 20px;"> The calendar page on the website was built using bootstrap and javascript to create a webpage that displays a filterable table featuring date and day of week, Disney park hours, 
+                          events going on, extra magic hours, and estimated crowd levels for the current month.</p>
+                      </div>
+                       </div>
+                 
+  
+                       <!-- Kathy-->
+
+                 <div class='row'>
+                    <div class='col-md-4'>
+                      <div class ="thumbnail">
+                    <img src="static/images/K.png" width="340" height="380"
+                     alt='Latitude' title="Latitude"
+                     style='float: left; margin-right: 10px; margin-bottom: 5px;
+                     border: solid black 1px; padding'/>
+                     <div class ="caption">
+                     <p style = "font-size: 15px;">Kathy is secrectly a princess but is humble and lives
+                       amongst the commoners.  She enjoys observing the peasants and 
+                       making awesome art work.  In her spare time she enjoys coding
+                       and never sleeping.
+                     </p>
+                     </div>
+                     </div>
+                    </div>
+                    
+                    <div class = "col-md-8">
+                      <p style = "font-size: 20px;"> The website is built using Python Flask. In the wait time predictor, the selected date is first processed in Javascript before being sent to the Python back-end for further processing. The processed date is then fed into the models saved in Python Flask, which spits out values that are direc                                                                                                                                                        tly fed into the HTML. All of this occurs after cleaning the data using Python Pandas. </p>
+                    </div>
+                    </div>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class='row'>
+                        <div class='col-md-4'>
+                          <div class ="thumbnail">
+                        <img src="static/images/Laura.png" width="340" height="380"
+                         alt='Latitude' title="Latitude"
+                         style='float: left; margin-right: 10px; margin-bottom: 5px;
+                         border: solid black 1px; padding'/>
+                         <div class ="caption">
+                         <p style = "font-size: 15px;">Queen Laura favorite pastime is rallying against the white patriarchy
+                            and fighting the man.  Laura was in Peace Corps where she learned to 
+                            drink tiny cups of coffee slowly while everyone else thought she was
+                            really busy.  
+                         </p>
+                         </div>
+                         </div>
+                        </div>
+                        
+                        <div class = "col-md-8">
+                          <p style = "font-size: 20px;"> The Madlibs portion of the project mainly used python’s natural language processing toolkit, 
+                              and javascript.  Quotes from each character where taken from the internet and loaded 
+                              into a pandas dataframe.  “Stop words,” or common such as ‘the,’ and “it” where removed.  
+                              Then a human labeled the part of speech and loaded key words into a json file.  
+                              Javascript/ D3 was used to iterate through the data, randomly pick keywords and deliver the 
+                              contents to the html page.  
+                              Thanks to the teachers and TAs for the help. </p>
+                        </div>
+                        </div>
+    
+
+            <!-- End Summary Column-->
+
+
+
+    <!-- <div class="col-md-10">
+        <div class="container">
+          <div class="row"> -->
+          <!-- Start Summary Column-->
+            
+      
+          
+              <!-- Start Visualization Column-->
+            
+                  
+                  <!-- <div class='row'>
+                   <div class='column'>
+                   <img src="Laura.png" width="280" height="380"
+                    alt='Latitude' title="Latitude"
+                    style='float: left; margin-right: 10px; margin-bottom: 5px;
+                    border: solid black 1px; padding'/>
+                    <p>thirrijgorijgroijgoihuiriurhruhuih</p> -->
+              
+
+        <!--Footer-->
+      <!-- <footer > 
+
+        <p class='foot'>not-copywritten by meeeeeeeee!</p>
+      </footer> -->
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+          

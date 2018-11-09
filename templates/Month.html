@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/design.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Monthly Happenings</title>
+    
+</head>
+
+<!-- HEADER -->
+<body>
+        <nav class='navbar navbar-default'>
+
+                <b><a href = "/"><h1 style = "font-size: 60px; padding-bottom: 30px; font-family: Big Caslon;">Magical Disney Journey</h1></a></b>
+                <center><a href="/predict" class = "w3-btn w3-blue" >Predict</a> 
+                    <a href="/month" class = "w3-btn w3-blue">Calendar</a> 
+                    <a href="/madlib" class = "w3-btn w3-blue">Game</a>
+                    <a href="/about" class = "w3-btn w3-blue">About</a></center>
+
+                    <br>
+                    <br>
+        </nav>
+ 
+
+<!-- SEARCH BY PARK -->
+    <div class="container">
+        <div class="row">
+                <h3 class = "predicthead2" style = "text-indent: 20px;">This Month at Disney World</h3>
+                <p class =  "predictp" style = "text-indent: 20px;">Select from the below options to get a glimpse of what's happening at the parks this month!</p>
+                <a href="#table"></a>
+                    <hr/>
+          <div class="col-md-6">
+              <h4>Search by Park</h4>
+              <select name="Park" id="parkSelect" class="form-control">
+              </select>
+          </div>
+
+            <!-- <div class="col-md-4">
+                <h4>Search by Country</h4>
+                <select name="Countries" id="countrySelect" class="form-control">
+                </select>
+            </div> -->
+        <!-- </div> -->
+
+
+<!-- SEARCH BY DATE -->
+        <!-- <div class="row">
+            <div class="col-md-4">
+                <h4>Search By Date</h4>
+                <div class="input-group">
+                    <input type="date" class="form-control" placeholder="Select a Date to Search" id="dateInput">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="dateButton">Search</button>
+                    </span>
+                </div>
+            </div> -->
+
+                    <div class="row">
+            <div class="col-md-6">
+                <h4>Search by Event</h4>
+                <select name="Events" id="eventSelect" class="form-control">
+                </select>
+            </div>
+            <div class="col-md-12 align-bottom" id="clear-div">
+                <button class="btn btn-primary btn-md" id="clearSelections">Clear Selections</button>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <a name="table"></a>
+                <div class="panel panel-default table-panel">
+                    <div class="panel-heading"><b>Disney World Happenings</b></div>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>DayofWeek</th>
+                                <th>Date</th>
+                                <th>Park</th>
+                                <th>Hours</th>
+                                <th>Event</th>
+                                <th>MagicHours</th>
+                                <th>EstimatedCrowdLevel</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+                <center><nav aria-label="Page navigation" id="pagination-div">
+                    <ul class="pagination pagination-lg">
+                      <li id="firstLi">
+                        <a href="#table" id="firstPage" aria-label="First">
+                          &laquo;&laquo;
+                        </a>
+                      </li>
+                      <li id="prevLi"><a href="#table" id="prevPage">1</a></li>
+                      <li id="thisLi"><a href="#table" id="thisPage">2</a></li>
+                      <li id="nextLi"><a href="#table" id="nextPage">3</a></li>
+                      <li id="lastLi">
+                        <a href="#table" id="lastPage" aria-label="Last">
+                          &raquo;&raquo;
+                        </a>
+                      </li>
+                    </ul>
+                  </nav></center>
+
+
+    </div>
+
+    <script src="/static/js/data.js" type="text/javascript"></script>
+    <script src="/static/js/table.js" type="text/javascript"></script>
+</body>
+</html>
